@@ -49,15 +49,12 @@ cari
 		<td>{{$barang->qty}}</td>
 		<td>
 		
-		<form action="{{route('barang.destroy',['barang'=>$barang->id_barang])}}"method="POST">
-
+		{{-- <form action="{{route('barang.destroy',['barang'=>$barang->id_barang])}}"method="POST"> --}}
+		<a class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus barang?')" href="{{url('delete',['barang'=>$barang->id_barang])}}">Delete</a>
 		<a class="btn btn-info"href="{{route('barang.show',['barang'=>$barang->id_barang])}}">Show</a>
 
 		<a class="btn btn-primary"href="{{route('barang.edit',['barang'=>$barang->id_barang])}}">Edit</a>
-		@csrf
-		@method('DELETE')
-		<button type="submit"class="btn btn-danger">Delete</button>
-	</form>
+		
 
 </td>
 </tr>
