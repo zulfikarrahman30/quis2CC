@@ -55,7 +55,8 @@ class BarangController extends Controller
      */
     public function show($id)
     {
-        //
+        $barang=Barang::find($id);
+        return view('barang.detail',compact('barang'));
     }
 
     /**
