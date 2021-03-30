@@ -62,6 +62,6 @@ cari
 </td>
 </tr>
 @endforeach
-
+{{$data->links()}}
 </table>
 @endsection

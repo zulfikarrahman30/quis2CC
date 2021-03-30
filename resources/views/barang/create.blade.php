@@ -1,9 +1,9 @@
-@extends('mahasiswa.layout')
+@extends('barang.layout')
 @section('content')
 <div class="containermt-5">
 <div class="row justify-content-center align-items-center">
 <div class="card"style="width:24rem;">
-<div class="card-header">TambahMahasiswa</div>
+<div class="card-header">Tambahbarang</div>
 <div class="card-body">
 @if($errors->any())
 <div class="alert alert-danger">
@@ -16,37 +16,29 @@
 </ul>
 </div>
 @endif
-<form method="post" action="{{route('mahasiswa.store')}}" id="myForm">
+<form method="post" action="{{route('barang.store')}}" id="myForm">
 @csrf
 <div class="form-group">
-<label for="Nim">Nim</label>
-<input type="text"name="nim"class="form-control"id="Nim"aria-describedby="Nim">
+<label for="kode barang">kode barang</label>
+<input type="text"name="kode_barang"class="form-control"id="kode_barang"aria-describedby="kode_barang">
 </div>
 <div class="form-group">
-<label for="Nama">Nama</label>
-<input type="Nama"name="nama"class="form-control"id="Nama"aria-describedby="Nama">
+<label for="nama barang">Nama barang</label>
+<input type="nama_barang"name="nama_barang"class="form-control"id="nama_barang"aria-describedby="nama_barang">
 </div>
 <div class="form-group">
-<label for="Kelas">Kelas</label>
-<input type="Kelas"name="kelas"class="form-control"id="Kelas"aria-describedby="password">
+<label for="kategori barang">Kategori barang</label>
+<input type="kategori_barang"name="kategori_barang"class="form-control"id="kategori_barang"aria-describedby="kategori_barang">
 </div>
 <div class="form-group">
-<label for="Jurusan">
-Jurusan
+<label for="harga">
+Harga
 </label>
-<input type="Jurusan"name="jurusan"class="form-control"id="Jurusan"aria-describedby="Jurusan">
+<input type="harga"name="harga"class="form-control"id="harga"aria-describedby="harga">
 </div>
 <div class="form-group">
-<label for="No_Handphone">No_Handphone</label>
-<input type="No_Handphone"name="no_handphone"class="form-control"id="No_Handphone"aria-describedby="No_Handphone">
-</div>
-<div class="form-group">
-<label for="No_Handphone">Email</label>
-<input type="email"name="email"class="form-control"id="No_Handphone"aria-describedby="No_Handphone">
-</div>
-<div class="form-group">
-<label for="No_Handphone">Tgl Lahir</label>
-<input type="date"name="tanggal_lahir"class="form-control"id="No_Handphone"aria-describedby="No_Handphone">
+<label for="qty">qty</label>
+<input type="qty"name="qty"class="form-control"id="qty"aria-describedby="qty">
 </div>
 <button type="submit"class="btn btn-primary">Submit
 </button>
