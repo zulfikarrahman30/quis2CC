@@ -1,0 +1,38 @@
+version: '3'
+services:
+
+  #Laravel App
+  quis2CC:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: zulfikarrahman/quis2cc
+    container_name: quis2cc
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: quis2cc
+      SERVICE_TAGS: quis2cc
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - laravel-quis2cc
+  #Nginx Service
+  nginx-quis2cc:
+    image: nginx:alpine
+    container_name: nginx-quis2cc
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./:/var/www/html
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - laravel-quis2cc
+
+#Docker Networks
+networks:
+  laravel-quis2cc:
+    driver: bridge

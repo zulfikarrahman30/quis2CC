@@ -1,0 +1,38 @@
+version: '3'
+services:
+
+  #Laravel App
+  quis2CC:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aqilspc/showroommobil
+    container_name: showroom
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: showroom
+      SERVICE_TAGS: showroom
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - laravelm
+  #Nginx Service
+  nginx-showroom:
+    image: nginx:alpine
+    container_name: nginx-showroom
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./:/var/www/html
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - laravel-quis2CC
+
+#Docker Networks
+networks:
+  laravel-showroom:
+    driver: bridge
