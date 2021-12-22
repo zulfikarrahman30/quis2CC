@@ -40,7 +40,7 @@ jobs:
             sudo echo 'SESSION_DRIVER=file' >> .env
             sudo echo 'SESSION_LIFETIME=120' >> .env
             sudo docker-compose up -d
-            sudo docker exec showroom composer install
-            sudo docker exec showroom php artisan migrate
-            sudo docker exec showroom php artisan db:seed
-            sudo docker exec showroom php artisan optimize:clear
+            sudo docker exec quis2cc composer install
+            sudo docker exec quis2cc php artisan migrate
+            sudo docker exec quis2cc php artisan db:seed
+            sudo docker exec quis2cc php artisan optimize:clear
